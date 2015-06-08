@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="myStyle/myCss.css">
+<title>MyRetail</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row" id="header">
+			<img id="logo" src="images/logo.png" />
+			<h3>MyRetail</h3>
+		</div>
+		<div class="row" id="products-row">
+			<div class="responsive" id="all-items">
+				<img
+					src="http://www.gravatar.com/avatar/0000000000000000000000000000000?d=identicon&amp;f=y"
+					class="img-rounded" alt="All Items" />
+				<div>
+					<button class="btn btn-primary" id="displayByID"
+						onclick="displayAll()">All Products</button>
+				</div>
+			</div>
+			<div class="responsive" id="id">
+				<img
+					src="http://www.gravatar.com/avatar/0000000000000000000000000000001?d=identicon&amp;f=y"
+					class="img-rounded" alt="All Items" />
+				<div>
+					<input id="search-item" type="text" placeholder="Enter ID"></input>
+				</div>
+				<div>
+					<button class="btn btn-primary" onclick="displayItemByID()">Search
+						By ID</button>
+				</div>
+			</div>
+			<div class="responsive" id="catl">
+				<img
+					src="http://www.gravatar.com/avatar/0000000000000000000000000000002?d=identicon&amp;f=y"
+					class="img-rounded" alt="All Items" />
+				<div>
+					<input id="search-item2" type="text" placeholder="Enter Catalog"></input>
+				</div>
+				<div>
+					<button class="btn btn-primary" onclick="displayItemByCatl()">Search
+						By Catalog</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" id="products">
+			<table class="table table-striped" id="produts-table">
+			</table>
+		</div>
+	</div>
+	<div class="navbar navbar-fixed-bottom">
+		<label id="footer" class="pull-right">Powered By REST API</label>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="scripts/myScript.js"></script>
+</body>
+</html>
