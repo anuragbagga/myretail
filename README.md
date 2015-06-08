@@ -76,10 +76,6 @@ Test cases are present in src/test/java folder. SearchInputTest.java class valid
 response from database.
 
 
-Questions?
----------------
-I will be attending interview on 12th June 2015 (Friday). C u then. :)
-
 Prepared by 
 ---------------
 Anurag Bagga
