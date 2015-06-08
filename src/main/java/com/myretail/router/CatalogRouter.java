@@ -25,7 +25,7 @@ import com.myretail.utils.DBSessionFactory;
 public class CatalogRouter {
 
 	private static final Logger logger = Logger.getLogger(CatalogRouter.class.getName());
-	
+
 	@GET
 	@Path("{catalog_id}")
 	@Produces({ MediaType.APPLICATION_JSON})
@@ -35,16 +35,22 @@ public class CatalogRouter {
 		ListItemDetailsResponse response = new ListItemDetailsResponse();
 		SqlSession session = DBSessionFactory.getDBConnection();
 		ContactMapper mapper = session.getMapper(ContactMapper.class);
-		List<ItemDetailsResponse> itemList = mapper.selectOnCatalog(catalog);
-		response.setList(itemList);
-		if (itemList.size()!=0){
-			for (ItemDetailsResponse item : itemList) {
-				System.out.println(item.getId() + ":"
-						+ item.getName() + ":" + item.getPrice());
+		try{
+			List<ItemDetailsResponse> itemList = mapper.selectOnCatalog(catalog);
+			response.setList(itemList);
+			if (itemList.size()!=0){
+				for (ItemDetailsResponse item : itemList) {
+					System.out.println(item.getId() + ":"
+							+ item.getName() + ":" + item.getPrice());
+				}
 			}
-		}
-		else {
-			throw new ItemNotFoundException("Invalid Catalog Id", ErrorConstants.INVALID_CATALOG_ID);
+			else {
+				throw new ItemNotFoundException("Invalid Catalog Id", ErrorConstants.INVALID_CATALOG_ID);
+			}
+		} catch (Exception e){
+			e.printStackTrace();
+			logger.info("No Items found in database based on catalog id :-"+catalog );
+			throw new ItemNotFoundException("Invalid Item Id", ErrorConstants.INVALID_ITEM_ID);
 		}
 		session.close();
 		logger.info("Call Trace - ItemRouter.getItemsbyCatalog() - End");

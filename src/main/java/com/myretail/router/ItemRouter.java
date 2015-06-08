@@ -22,8 +22,8 @@ import java.util.logging.Logger;
 @Path("/item")
 public class ItemRouter {
 
-    private static final Logger logger = Logger.getLogger(ItemRouter.class.getName());
-    
+	private static final Logger logger = Logger.getLogger(ItemRouter.class.getName());
+
 	/* 
 	 * This method will return all items in inventory.
 	 * No parameters required. 
@@ -72,15 +72,21 @@ public class ItemRouter {
 		ContactMapper mapper = session.getMapper(ContactMapper.class);
 		List<ItemDetailsResponse> itemList = mapper.select(id);
 		response.setList(itemList);
-		if (itemList.size()!=0){
-			logger.info("Total Count of items :- "+itemList.size());
-			for (ItemDetailsResponse item : itemList) {
-				System.out.println(item.getId() + ":"
-						+ item.getName() + ":" + item.getPrice());
+		try{
+			if (itemList.size()!=0){
+				logger.info("Total Count of items :- "+itemList.size());
+				for (ItemDetailsResponse item : itemList) {
+					System.out.println(item.getId() + ":"
+							+ item.getName() + ":" + item.getPrice());
+				}
 			}
-		}
-		else {
-			logger.info("No Items found in database based on given id :-"+id);
+			else {
+				logger.info("No Items found in database based on given id :-"+id);
+				throw new ItemNotFoundException("Invalid Item Id", ErrorConstants.INVALID_ITEM_ID);
+			}
+		}catch (Exception e){
+			e.printStackTrace();
+			logger.info("No Items found in database based on given id :-"+id );
 			throw new ItemNotFoundException("Invalid Item Id", ErrorConstants.INVALID_ITEM_ID);
 		}
 		session.close();
