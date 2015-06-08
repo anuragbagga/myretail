@@ -14,7 +14,7 @@ function displayAll(){
 }
 function onAjaxSuccess( data ){
 	console.log(data);
-   // $("#produts-table").children(listItems).remove();
+    $("#produts-table").children(array).remove();
     var array  = new Array();
     array.push('<tr><th> ID </th>' +
             '<th> Name </th>' +
@@ -42,6 +42,7 @@ function displayItemByID(){
             format: 'json'
         },
         error: function(xhr, status, text) {
+        	alert("No data found. Please check your input");
            console.log("xhr :(%o), status :(%o), text :(%o)", xhr, status, text);
         },
         dataType: 'json',
@@ -58,6 +59,7 @@ function displayItemByCatl(){
             format: 'json'
         },
         error: function(xhr, status, text) {
+           alert("No data found. Please check your input");
            console.log("xhr :(%o), status :(%o), text :(%o)", xhr, status, text);
         },
         dataType: 'json',
