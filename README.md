@@ -8,6 +8,8 @@ This is a simple application which will return list of items based on search cri
     * Search by item by ID.
     * Get all items available in repository.
     * Search items by Catalog.
+    * Add items to Cart. Decrease in Item Inventory
+    * Adding items in Inventory through Job
     
 Pre-requisites
 --------------
@@ -38,6 +40,10 @@ You can also run following curl commands in browser to check the output
 		
 * Search by item by ID URI - http://localhost:8080/myretail/catalog/{catalog_id}
   	     Example - http://localhost:8080/myretail/rest/catalog/Baby
+  	     
+* Add item to cart ID URI  - http://localhost:8080/myretail/rest/addtocart/{itemid}/stock/{quantity}
+		Example - http://localhost:8080/myretail/rest/addtocart/5555/stock/1000
+		
   
 Code Structure 
 ---------------
@@ -74,6 +80,21 @@ form.
 ---------------
 Test cases are present in src/test/java folder. SearchInputTest.java class validates the 
 response from database.
+
+5) Batch Job 
+---------------
+
+Source code in myretail-batch project.
+
+This job will update the inventory based on id. Price and quantity both will be updated
+based on item id.
+ 
+ Main Class is InventoryJob.java which triggers the flow. DB Details in myretail.properties
+ file.
+ 
+ File should be in following format. Comma (,) delimited
+ quantity,id,new price
+ 10000,5555,200
 
 
 Prepared by 
