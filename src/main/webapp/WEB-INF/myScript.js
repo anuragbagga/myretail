@@ -20,8 +20,9 @@ function onAjaxSuccess( data ){
             '<th> Name </th>' +
             '<th> Price </th>' +
             '<th> SKU </th>' +
-            '<th> Category </th>'+
-            '<th> Quantity </th></tr>');
+            '<th> Category </th>' +
+            '<th> Quantity </th></tr>' 
+            );
 	$.each(data.list, function(index,item ){
 		 console.log(item);
 		 array.push( 
@@ -29,7 +30,7 @@ function onAjaxSuccess( data ){
                          '<td>' + item.name + '</td>' +
                         '<td>' + item.price + '</td>' +
                         '<td>' + item.sku + '</td>' +
-                        '<td>' + item.category_id + '</td>'+
+                        '<td>' + item.category_id + '</td> +
                         '<td>' + item.quantity + '</td></tr>');
             });
 	 //alert(array.join(''));

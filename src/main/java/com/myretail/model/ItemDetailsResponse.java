@@ -13,7 +13,8 @@ public class ItemDetailsResponse {
 	private String category_id;
 
 	private String price;
-
+	
+	private int quantity;
 
 	public int getId() {
 		return id;
@@ -46,5 +47,14 @@ public class ItemDetailsResponse {
 	public void setCategory_id(String category_id) {
 		this.category_id = category_id;
 	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+	
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
 
 }

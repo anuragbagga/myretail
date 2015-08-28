@@ -27,7 +27,6 @@ public class MyClient {
 			ClientResponse response = r.type(MediaType.APPLICATION_XML).get(ClientResponse.class);
 			System.out.println(response.getStatus());
 			if(response.getStatus() == 200){
-				System.out.println("fkdhfjd");
 				ListItemDetailsResponse arrItemList = response.getEntity(ListItemDetailsResponse.class);
 				List<ItemDetailsResponse> itemList = arrItemList.getList();
 				for(ItemDetailsResponse item:itemList){

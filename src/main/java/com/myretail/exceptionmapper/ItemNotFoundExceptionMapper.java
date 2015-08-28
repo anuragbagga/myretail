@@ -18,7 +18,7 @@ public class ItemNotFoundExceptionMapper implements ExceptionMapper<ItemNotFound
 		errorResponse.setErrorCode(itemNotFoundException.getMessage());
 		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(
 				errorResponse).type(
-						MediaType.APPLICATION_XML).build();
+						MediaType.APPLICATION_JSON).build();
 	}
 
 }

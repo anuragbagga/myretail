@@ -40,7 +40,7 @@ public class CatalogRouter {
 			response.setList(itemList);
 			if (itemList.size()!=0){
 				for (ItemDetailsResponse item : itemList) {
-					System.out.println(item.getId() + ":"
+					logger.info(item.getId() + ":"
 							+ item.getName() + ":" + item.getPrice());
 				}
 			}

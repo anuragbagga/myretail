@@ -46,10 +46,8 @@ public class ItemRouter {
 		if (itemList.size()!=0){
 			logger.info("Total Count of items :- "+itemList.size());
 			for (ItemDetailsResponse item : itemList) {
-				System.out.println(item.getId() + ":"
-						+ item.getName() + ":" + item.getPrice());
 				logger.info(item.getId() + ":"
-						+ item.getName() + ":" + item.getPrice());
+						+ item.getName() + ":" + item.getPrice() +":"+ item.getQuantity());
 			}
 		}
 		else {
@@ -76,7 +74,7 @@ public class ItemRouter {
 			if (itemList.size()!=0){
 				logger.info("Total Count of items :- "+itemList.size());
 				for (ItemDetailsResponse item : itemList) {
-					System.out.println(item.getId() + ":"
+					logger.info(item.getId() + ":"
 							+ item.getName() + ":" + item.getPrice());
 				}
 			}
